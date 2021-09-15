@@ -44,7 +44,7 @@ action:
   - alias: Wait until there is no motion from device
     wait_for_trigger:
       platform: state
-      entity_id: !input motion_entity'
+      entity_id: !input motion_entity
       from: 'on'
       to: 'off'
   - alias: Wait the number of seconds that has been set
