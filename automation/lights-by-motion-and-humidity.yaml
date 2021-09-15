@@ -53,9 +53,6 @@ trigger:
     entity_id: !input motion_entity
     from: 'off'
     to: 'on'
-  - platform: numeric_state
-    entity_id: !input humidity_sensor_entity
-    below: !input humidity_threshold
 
 action:
   - alias: Turn on the light
@@ -67,13 +64,13 @@ action:
       entity_id: !input motion_entity
       from: 'on'
       to: 'off'
+  - alias: Wait the number of seconds that has been set
+    delay: !input no_motion_wait
   - alias: Check humidity level
     wait_for_trigger:
       platform: numeric_state
       entity_id: !input humidity_sensor_entity
-      below: !input humidity_threshold
-  - alias: Wait the number of seconds that has been set
-    delay: !input no_motion_wait
+      above: !input humidity_threshold
   - alias: Turn off the light
     service: light.turn_off
     target: !input light_target
