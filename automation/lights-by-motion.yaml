@@ -2,7 +2,7 @@ blueprint:
   name: Motion Actived Lights
   description: Turn on a light or light group when motion is detected.
   domain: automation
-  source_url: https://github.com/nbar1/ha-blueprints/automation/motion-activated-light.yaml
+  source_url: https://github.com/nbar1/ha-blueprints/blob/main/automation/lights-by-motion.yaml
   input:
     motion_entity:
       name: Motion Sensor
